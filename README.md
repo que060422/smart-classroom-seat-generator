@@ -10,8 +10,7 @@ The system supports multiple seating arrangement modes, provides a live seat pre
 
 ## 🌐 Live Demo
 
-https://your-vercel-link.vercel.app
-
+https://smart-classroom-seat-generator.vercel.app/
 ## 📌 Case Study
 
 - Business Problem
