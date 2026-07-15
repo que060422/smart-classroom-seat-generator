@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       <title>Smart Classroom Seat Generator</title>
+  <link rel="icon" type="image/png" href="logo.png"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+	 /*==========================
+        ROOT
+===========================*/
+
+:root{
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+
+    --male:#dbeafe;
+    --female:#fce7f3;
+
+    --bg:#f8fafc;
+    --card:#ffffff;
+
+    --text-primary:#0f172a;
+    --text-secondary:#64748b;
+
+    --border:#e2e8f0;
+
+    --shadow:
+    0 4px 20px rgba(15,23,42,.05);
+
+    --shadow-hover:
+    0 10px 30px rgba(15,23,42,.08);
+
+    --radius:18px;
+
+    --transition:.35s;
+
+}
+
+/*==========================
+        RESET
+===========================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+  font-family: "Manrope", sans-serif;
+    background:var(--card);
+
+    color:var(--text-primary);
+
+}
+/*==========================
+        HEADER
+===========================*/
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    width:100%;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+
+    z-index:1000;
+
+}
+
+.container{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+}
+
+/*==========================
+    HEADER CONTAINER
+===========================*/
+
+.header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    height:78px;
+
+}
+
+/*==========================
+          LOGO
+===========================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+
+    transition:var(--transition);
+
+}
+
+.logo:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/*==========================
+      NAVIGATION
+===========================*/
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--primary);
+
+}
+
+/* underline animation */
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.35s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+/*==========================
+        HERO
+===========================*/
+
+.hero{
+
+    padding:90px 0 70px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #F8FAFC 0%,
+        #EFF6FF 100%
+    );
+
+}
+
+.hero-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+/*==========================
+      HERO CONTENT
+===========================*/
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:#DBEAFE;
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+
+}
+
+.hero-content h1{
+
+    font-size:3.5rem;
+
+    line-height:1.15;
+
+    margin-bottom:24px;
+
+    font-weight:800;
+
+}
+
+.hero-content h1 span{
+
+    color:var(--primary);
+
+}
+
+.hero-content p{
+
+    font-size:1.05rem;
+
+    color:var(--text-secondary);
+
+    line-height:1.9;
+
+    max-width:580px;
+
+    margin-bottom:35px;
+
+}
+
+/*==========================
+      FEATURES
+===========================*/
+
+.hero-features{
+
+    display:grid;
+
+    gap:18px;
+
+    margin-bottom:40px;
+
+}
+
+.hero-features div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--text-primary);
+
+    font-weight:600;
+
+}
+
+.hero-features i{
+
+    color:#22C55E;
+
+    font-size:1.25rem;
+
+}
+
+/*==========================
+        BUTTONS
+===========================*/
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-primary,
+
+.btn-secondary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 28px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+.btn-secondary{
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    color:var(--text-primary);
+
+}
+
+.btn-secondary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow);
+
+}
+
+/*==========================
+        IMAGE
+===========================*/
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.hero-image img{
+
+    width:100%;
+      border-radius: 24px;
+    max-width:720px;
+    box-shadow:0 25px 60px rgba(15,23,42,.12);
+
+    transition:var(--transition);
+
+}
+
+.hero-image img:hover{
+
+    transform:translateY(-8px);
+
+}
+/*==========================
+        OVERVIEW
+===========================*/
+
+.overview{
+
+    padding:100px 0;
+
+    background:var(--bg);
+
+}
+
+/*==========================
+      SECTION HEADER
+===========================*/
+
+.section-header{
+
+    text-align:center;
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+
+}
+
+.section-subtitle{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    background:#DBEAFE;
+
+    color:var(--primary);
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    margin-bottom:18px;
+
+}
+
+.section-title{
+
+    font-size:2.6rem;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+    color:var(--text-primary);
+
+}
+
+.section-description{
+
+    color:var(--text-secondary);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+/*==========================
+      OVERVIEW GRID
+===========================*/
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/*==========================
+      OVERVIEW CARD
+===========================*/
+
+.overview-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:38px 34px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.overview-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.overview-card i{
+
+    width:64px;
+
+    height:64px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    background:#EFF6FF;
+
+    border-radius:18px;
+
+    margin-bottom:24px;
+
+}
+
+.overview-card h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:18px;
+
+    color:var(--text-primary);
+
+}
+
+.overview-card p{
+
+    color:var(--text-secondary);
+
+    line-height:1.9;
+
+}
+.features{
+
+    padding:100px 0;
+
+    background:#fff;
+
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+
+}
+
+/*==========================
+      FEATURE CARD
+===========================*/
+
+.feature-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+/*==========================
+      ICON
+===========================*/
+
+.feature-card i{
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    background:#EFF6FF;
+
+    color:var(--primary);
+
+    font-size:2rem;
+
+    margin-bottom:25px;
+
+}
+
+/*==========================
+      TITLE
+===========================*/
+
+.feature-card h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:16px;
+
+    color:var(--text-primary);
+
+}
+
+/*==========================
+      DESCRIPTION
+===========================*/
+
+.feature-card p{
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+}
+
+.preview{
+
+    padding:100px 0;
+
+    background:var(--bg);
+
+}
+
+.preview-image{
+
+    margin-top:60px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.preview-image:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.preview-image img{
+
+    width:100%;
+
+    display:block;
+
+}
+.tech-stack{
+
+    padding:100px 0;
+
+    background:#fff;
+
+}
+
+/*==========================
+        TECH ROW
+===========================*/
+
+.tech-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:55px;
+
+    margin-top:60px;
+
+}
+
+/*==========================
+        TECH ITEM
+===========================*/
+
+.tech-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    transition:var(--transition);
+
+}
+
+.tech-item:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.tech-item i{
+
+    font-size:4rem;
+
+}
+
+.tech-item span{
+
+    font-weight:700;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+}
+
+/*==========================
+      BOXICONS
+===========================*/
+
+.tech-item .bx{
+
+    color:var(--primary);
+
+}
+/*==========================
+    LESSONS
+===========================*/
+
+.lessons{
+
+    padding:100px 0;
+
+    background:var(--bg);
+
+}
+
+.lesson-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.lesson-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.lesson-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.lesson-card i{
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#EFF6FF;
+
+    color:var(--primary);
+
+    border-radius:18px;
+
+    font-size:2rem;
+
+    margin-bottom:22px;
+
+}
+
+.lesson-card h3{
+
+    margin-bottom:16px;
+
+    font-size:1.35rem;
+
+}
+
+.lesson-card p{
+
+    color:var(--text-secondary);
+
+    line-height:1.9;
+
+}
+.future{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+.future-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.future-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.future-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.future-card i{
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    background:#EFF6FF;
+
+    border-radius:18px;
+
+    margin-bottom:22px;
+
+}
+
+.future-card h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:16px;
+
+    color:var(--text-primary);
+
+}
+
+.future-card p{
+
+    color:var(--text-secondary);
+
+    line-height:1.9;
+
+}
+/*==========================
+        FOOTER
+===========================*/
+
+.case-footer{
+
+    padding:80px 20px;
+
+    background:#ffffff;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
+
+}
+
+.case-footer h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+    color:var(--text-primary);
+
+}
+
+.case-footer p{
+
+    max-width:700px;
+
+    margin:0 auto 35px;
+
+    line-height:1.8;
+
+    color:var(--text-secondary);
+
+}
+
+.back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 26px;
+
+    border-radius:50px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.back-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+.back-btn i{
+
+    font-size:1.2rem;
+
+}
+
+.copyright{
+
+    display:block;
+
+    margin-top:45px;
+
+    color:var(--text-secondary);
+
+    font-size:.9rem;
+
+}
+/*==========================
+      RESPONSIVE
+===========================*/
+
+@media(max-width:900px){
+
+    .header .container{
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        gap:18px;
+
+        height:auto;
+
+        padding:18px 0;
+
+    }
+
+    .nav-links{
+
+        gap:22px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+    .hero-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-content p{
+
+        margin-inline:auto;
+
+    }
+
+    .hero-features{
+
+        justify-content:center;
+
+    }
+
+    .hero-features div{
+
+        justify-content:center;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+
+}
+
+@media(max-width:600px){
+
+    .logo img{
+
+        width:50px;
+
+        height:50px;
+
+    }
+
+    .nav-links{
+
+        gap:16px;
+
+    }
+
+    .nav-links a{
+
+        font-size:.9rem;
+
+    }
+       .overview{
+
+        padding:80px 0;
+
+    }
+
+    .section-title{
+
+        font-size:2rem;
+
+    }
+
+    .section-description{
+
+        font-size:1rem;
+
+    }
+
+    .overview-card{
+
+        padding:30px;
+
+    }
+    .features{
+
+        padding:80px 0;
+
+    }
+
+    .feature-card{
+
+        padding:30px;
+
+    }
+       .preview{
+
+        padding:80px 0;
+
+    }
+  .tech-row{
+
+        gap:35px;
+
+    }
+
+    .tech-item i{
+
+        font-size:3.2rem;
+
+    }
+    .lessons{
+
+        padding:80px 0;
+
+    }
+
+    .future{
+
+        padding:80px 0;
+
+    }
+
+}
+</style>
+<body>
+<header class="header">
+
+    <div class="container">
+
+        <a href="#" class="logo">
+
+            <img src="logo.png" alt="Smart Classroom Seat Generator">
+
+        </a>
+
+        <nav class="navbar">
+
+            <ul class="nav-links">
+
+                <li><a href="#overview">Overview</a></li>
+
+                <li><a href="#features">Features</a></li>
+
+                <li><a href="#screenshots">Screenshots</a></li>
+
+                <li><a href="#technology">Tech Stack</a></li>
+
+                <li><a href="#challenges">Challenges</a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+</header>
+<!--==========================
+        HERO
+===========================-->
+
+<section class="hero" id="hero">
+
+    <div class="container hero-container">
+
+        <!-- LEFT -->
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+
+                Front-end Web Application
+
+            </span>
+
+            <h1>
+
+                Smart Classroom
+                <span>Seat Generator</span>
+
+            </h1>
+
+            <p>
+
+                A web-based classroom seating tool that helps teachers
+                generate fair, organized, and customizable seating
+                arrangements in seconds. Designed to simplify classroom
+                management while ensuring unbiased seat assignments.
+
+            </p>
+
+            <div class="hero-features">
+
+                <div>
+
+                    <i class='bx bx-check-circle'></i>
+
+                    Fair Seat Assignment
+
+                </div>
+
+                <div>
+
+                    <i class='bx bx-check-circle'></i>
+
+                    Multiple Arrangement Modes
+
+                </div>
+
+                <div>
+
+                    <i class='bx bx-check-circle'></i>
+
+                    Export to PDF & PNG
+
+                </div>
+
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="#" class="btn-primary">
+
+                    <i class='bx bx-play-circle'></i>
+
+                    Live Demo
+
+                </a>
+
+                <a href="#" class="btn-secondary">
+
+                    <i class='bx bxl-github'></i>
+
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="hero-image">
+
+            <img src="mockup.png"
+                 alt="Smart Classroom Seat Generator">
+
+        </div>
+
+    </div>
+</section>
+<section class="overview section" id="overview">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+
+                PROJECT OVERVIEW
+
+            </span>
+
+            <h2 class="section-title">
+
+                About the Project
+
+            </h2>
+
+            <p class="section-description">
+
+                Smart Classroom Seat Generator is a web-based classroom
+                management tool designed to help teachers create fair,
+                organized, and customizable seating arrangements quickly
+                and efficiently.
+
+            </p>
+
+        </div>
+
+        <div class="overview-grid">
+
+            <div class="overview-card">
+
+                <i class='bx bx-desktop'></i>
+
+                <h3>
+
+                    What is it?
+
+                </h3>
+
+                <p>
+
+                    A web-based seating arrangement generator that
+                    automatically assigns students to seats using
+                    different arrangement modes. The system minimizes
+                    manual work while ensuring a fair and unbiased
+                    seating process.
+
+                </p>
+
+            </div>
+
+            <div class="overview-card">
+
+                <i class='bx bx-error-circle'></i>
+
+                <h3>
+
+                    Problem Solved
+
+                </h3>
+
+                <p>
+
+                    Manual seat assignments often take several minutes
+                    and may unintentionally become biased. The system
+                    automates the process, producing classroom seating
+                    arrangements in seconds while promoting fairness
+                    and consistency.
+
+                </p>
+
+            </div>
+
+            <div class="overview-card">
+
+                <i class='bx bx-group'></i>
+
+                <h3>
+
+                    Target Users
+
+                </h3>
+
+                <p>
+
+                    Primarily designed for teachers who need to organize
+                    classroom seating efficiently. Students also benefit
+                    from a transparent and unbiased seat assignment
+                    process.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="features section" id="features">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+
+                KEY FEATURES
+
+            </span>
+
+            <h2 class="section-title">
+
+                Powerful Classroom Tools
+
+            </h2>
+
+            <p class="section-description">
+
+                Designed to simplify classroom management through
+                automated seat generation, flexible arrangements,
+                and export capabilities.
+
+            </p>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <i class='bx bx-shuffle'></i>
+
+                <h3>
+
+                    Random Arrangement
+
+                </h3>
+
+                <p>
+
+                    Instantly assign students to random seats
+                    for a fair and unbiased seating plan.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class='bx bx-sort-a-z'></i>
+
+                <h3>
+
+                    Alphabetical Arrangement
+
+                </h3>
+
+                <p>
+
+                    Automatically arrange students
+                    alphabetically by surname.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class='bx bx-group'></i>
+
+                <h3>
+
+                    Alternate Boy & Girl
+
+                </h3>
+
+                <p>
+
+                    Alternate male and female students
+                    automatically for balanced seating.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class='bx bx-search'></i>
+
+                <h3>
+
+                    Student Search
+
+                </h3>
+
+                <p>
+
+                    Quickly locate any student
+                    using the built-in search feature.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class='bx bx-download'></i>
+
+                <h3>
+
+                    Export Options
+
+                </h3>
+
+                <p>
+
+                    Download seating plans as
+                    PDF or PNG for easy sharing.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class='bx bx-printer'></i>
+
+                <h3>
+
+                    Print Ready
+
+                </h3>
+
+                <p>
+
+                    Print a clean classroom
+                    seating layout instantly.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--==========================
+      APPLICATION PREVIEW
+===========================-->
+
+<section class="preview section" id="screenshots">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+
+                APPLICATION PREVIEW
+
+            </span>
+
+            <h2 class="section-title">
+
+                Smart Classroom Seat Generator Interface
+
+            </h2>
+
+            <p class="section-description">
+
+                The application provides an intuitive interface that allows
+                teachers to configure classroom layouts, generate seating
+                arrangements, search students, and export seating plans
+                for printing or sharing.
+
+            </p>
+
+        </div>
+
+        <div class="preview-image">
+
+            <img src="screenshot.png"
+                 alt="Smart Classroom Seat Generator Preview">
+
+        </div>
+
+    </div>
+
+</section>
+<!--==========================
+        TECH STACK
+===========================-->
+
+<section class="tech-stack section" id="technology">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+
+                TECH STACK
+
+            </span>
+
+            <h2 class="section-title">
+
+                Built with Modern Web Technologies
+
+            </h2>
+
+            <p class="section-description">
+
+                Developed using lightweight front-end technologies
+                focused on performance, responsiveness, and usability.
+
+            </p>
+
+        </div>
+
+        <div class="tech-row">
+
+            <div class="tech-item">
+
+                <i class="devicon-html5-plain colored"></i>
+
+                <span>HTML5</span>
+
+            </div>
+
+            <div class="tech-item">
+
+                <i class="devicon-css3-plain colored"></i>
+
+                <span>CSS3</span>
+
+            </div>
+
+            <div class="tech-item">
+
+                <i class="devicon-javascript-plain colored"></i>
+
+                <span>JavaScript</span>
+
+            </div>
+
+            <div class="tech-item">
+
+                <i class='bx bx-image'></i>
+
+                <span>html2canvas</span>
+
+            </div>
+
+            <div class="tech-item">
+
+                <i class='bx bxs-file-pdf'></i>
+
+                <span>jsPDF</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--==========================
+    CHALLENGES & LESSONS
+===========================-->
+
+<section class="lessons section" id="challenges">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+
+                CHALLENGES & LESSONS LEARNED
+
+            </span>
+
+            <h2 class="section-title">
+
+                Challenges & Lessons Learned
+
+            </h2>
+
+            <p class="section-description">
+
+                Throughout the development process, I encountered several
+                technical challenges that strengthened my problem-solving,
+                JavaScript, and user experience design skills.
+
+            </p>
+
+        </div>
+
+        <div class="lesson-grid">
+
+            <div class="lesson-card">
+
+                <i class='bx bx-code-alt'></i>
+
+                <h3>
+
+                    Algorithm Design
+
+                </h3>
+
+                <p>
+
+                    One of the biggest challenges was designing different
+                    seating arrangement algorithms while keeping the code
+                    organized and reusable. Each arrangement mode required
+                    different logic to ensure accurate seat assignments
+                    without conflicts or duplicate placements.
+
+                </p>
+
+            </div>
+
+            <div class="lesson-card">
+
+                <i class='bx bx-test-tube'></i>
+
+                <h3>
+
+                    User Experience Testing
+
+                </h3>
+
+                <p>
+
+                    Testing the application before deployment helped
+                    identify usability issues and unexpected behaviors.
+                    Repeated testing improved the interface, making the
+                    application more intuitive and easier for teachers
+                    to use in real classroom scenarios.
+
+                </p>
+
+            </div>
+
+            <div class="lesson-card">
+
+                <i class='bx bx-bulb'></i>
+
+                <h3>
+
+                    Key Lessons Learned
+
+                </h3>
+
+                <p>
+
+                  I learned that continuous testing and user feedback are essential for building reliable and user-friendly web applications. This project reinforced the importance of analyzing user requirements, validating solutions through testing, and continuously refining the system to improve the overall user experience.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--==========================
+    FUTURE IMPROVEMENTS
+===========================-->
+
+<section class="future section" id="future">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+
+                FUTURE IMPROVEMENTS
+
+            </span>
+
+            <h2 class="section-title">
+
+                Future Enhancements
+
+            </h2>
+
+            <p class="section-description">
+
+                While the current version provides essential classroom
+                seating features, several enhancements can further
+                improve usability, flexibility, and the overall user
+                experience.
+
+            </p>
+
+        </div>
+
+        <div class="future-grid">
+
+            <div class="future-card">
+
+                <i class='bx bx-spreadsheet'></i>
+
+                <h3>
+
+                    Excel / CSV Import
+
+                </h3>
+
+                <p>
+
+                    Allow teachers to import student lists directly
+                    from Excel or CSV files instead of manually
+                    pasting names.
+
+                </p>
+
+            </div>
+
+            <div class="future-card">
+
+                <i class='bx bx-move'></i>
+
+                <h3>
+
+                    Drag & Drop Seats
+
+                </h3>
+
+                <p>
+
+                    Enable teachers to manually swap students between
+                    seats after generating the seating arrangement.
+
+                </p>
+
+            </div>
+
+            <div class="future-card">
+
+                <i class='bx bx-save'></i>
+
+                <h3>
+
+                    Save Seating Layouts
+
+                </h3>
+
+                <p>
+
+                    Save generated seating arrangements for future
+                    classroom sessions without regenerating them.
+
+                </p>
+
+            </div>
+
+            <div class="future-card">
+
+                <i class='bx bx-building-house'></i>
+
+                <h3>
+
+                    Multiple Classroom Templates
+
+                </h3>
+
+                <p>
+
+                    Support different classroom layouts to match
+                    various room sizes and seating configurations.
+
+                </p>
+
+            </div>
+
+            <div class="future-card">
+
+                <i class='bx bx-history'></i>
+
+                <h3>
+
+                    Seating History
+
+                </h3>
+
+                <p>
+
+                    Keep a history of previously generated seating
+                    arrangements for easy retrieval and comparison.
+
+                </p>
+
+            </div>
+
+            <div class="future-card">
+
+                <i class='bx bx-moon'></i>
+
+                <h3>
+
+                    Dark Mode
+
+                </h3>
+
+                <p>
+
+                    Provide a dark theme option for improved
+                    accessibility and user preference.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--==========================
+        FOOTER
+===========================-->
+
+<footer class="case-footer">
+
+    <div class="container">
+
+        <h2>
+
+            Smart Classroom Seat Generator
+
+        </h2>
+
+        <p>
+
+            Designed and documented as a Business Systems Analysis
+            &amp; Front-End Web Development case study.
+
+        </p>
+
+        <a href="htdocs/portfolio.php" class="back-btn">
+
+            <i class='bx bx-arrow-back'></i>
+
+            Back to Portfolio
+
+        </a>
+
+        <span class="copyright">
+
+            © 2026 Justiniane, Quennie. All Rights Reserved.
+
+        </span>
+
+    </div>
+
+</footer>
+</body>
+</html>
